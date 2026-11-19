@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIGHTFALL | Gaming & Entertainment</title>
+
+<title>NIGHTFALL | Gaming Hub</title>
 
 <style>
 :root {
@@ -29,13 +30,15 @@ body {
   overflow-x: hidden;
 }
 
+/* ANIMATED BACKGROUND */
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 15%, #7124a833, transparent 35%),
-    radial-gradient(circle at 85% 75%, #a855f722, transparent 40%);
+    radial-gradient(circle at 15% 15%, #7124a844, transparent 35%),
+    radial-gradient(circle at 85% 75%, #a855f733, transparent 40%);
   animation: glow 7s infinite alternate;
   pointer-events: none;
   z-index: -1;
@@ -46,11 +49,13 @@ body::before {
   to { opacity: 1; }
 }
 
+/* HEADER */
+
 header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #100a1ddd;
+  background: #100a1dee;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #48256b;
   padding: 20px 7%;
@@ -83,6 +88,8 @@ nav a {
 
 nav a:hover { color: var(--purple); }
 
+/* HERO */
+
 .hero {
   text-align: center;
   padding: 100px 20px;
@@ -110,6 +117,8 @@ nav a:hover { color: var(--purple); }
   to {opacity:1; transform:translateY(0);}
 }
 
+/* BUTTONS */
+
 .button {
   display: inline-block;
   padding: 12px 20px;
@@ -120,6 +129,7 @@ nav a:hover { color: var(--purple); }
   text-decoration: none;
   font-weight: bold;
   transition: .25s;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -127,6 +137,8 @@ nav a:hover { color: var(--purple); }
   transform: translateY(-3px);
   box-shadow: 0 0 18px #a855f788;
 }
+
+/* SECTIONS */
 
 section {
   padding: 45px 7%;
@@ -143,11 +155,19 @@ section h2 {
   margin-bottom: 25px;
 }
 
+/* SEARCH */
+
+.search-area {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
 .search {
   width: 100%;
-  max-width: 550px;
+  max-width: 500px;
   padding: 15px;
-  margin: 15px 0 30px;
   background: #191126;
   border: 1px solid #7138a0;
   border-radius: 9px;
@@ -160,6 +180,8 @@ section h2 {
   border-color: #d8b4fe;
   box-shadow: 0 0 12px #a855f766;
 }
+
+/* CARDS */
 
 .cards {
   display: grid;
@@ -216,12 +238,8 @@ footer {
 }
 
 @media(max-width:600px) {
-  header {
-    flex-direction: column;
-  }
-
+  header { flex-direction: column; }
   nav { justify-content: center; }
-
   section { padding: 35px 5%; }
 }
 </style>
@@ -241,70 +259,106 @@ footer {
   </nav>
 </header>
 
+<!-- MAIN PAGE -->
+
 <div class="hero" id="home">
   <h1>WELCOME TO <span>NIGHTFALL</span></h1>
   <p>Your personal gaming and entertainment headquarters.</p>
-  <a href="#games" class="button">EXPLORE NIGHTFALL</a>
+  <a href="#games" class="button">ENTER NIGHTFALL</a>
 </div>
 
+<!-- GOOGLE SEARCH -->
+
 <section>
-  <h2>🔎 Search NIGHTFALL</h2>
+  <h2>🔎 INTERNET SEARCH</h2>
   <p class="description">
-    Search games, websites and entertainment.
+    Search the internet using Google.
   </p>
 
-  <input
-    class="search"
-    id="search"
-    type="search"
-    placeholder="Search everything..."
-    aria-label="Search all cards"
-  >
+  <form action="https://www.google.com/search"
+        method="GET"
+        target="_blank"
+        class="search-area">
 
-  <p id="noResults" hidden>No matching results found.</p>
+    <input class="search"
+           type="search"
+           name="q"
+           placeholder="Search Google..."
+           required>
+
+    <button class="button" type="submit">
+      SEARCH WEB
+    </button>
+  </form>
 </section>
+
+<!-- HOMEPAGE SEARCH -->
+
+<section>
+  <h2>🔍 SEARCH NIGHTFALL</h2>
+  <p class="description">
+    Find games and websites inside your dashboard.
+  </p>
+
+  <input class="search"
+         id="cardSearch"
+         type="search"
+         placeholder="Search NIGHTFALL cards...">
+
+  <p id="noResults" hidden>
+    No matching cards found.
+  </p>
+</section>
+
+<!-- GAMES -->
 
 <section id="games">
   <h2>🎮 FREE GAMING ZONE</h2>
   <p class="description">
-    Free browser games and places to discover indie games.
+    Discover free browser games and indie games.
   </p>
 
   <div class="cards">
 
     <div class="card">
       <h3>CrazyGames</h3>
-      <p>Play hundreds of free browser games.</p>
+      <p>Hundreds of free browser games.</p>
       <a class="button" href="https://www.crazygames.com/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
     <div class="card">
       <h3>Poki</h3>
-      <p>Explore free online games.</p>
+      <p>Free online games.</p>
       <a class="button" href="https://poki.com/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
     <div class="card">
       <h3>itch.io</h3>
-      <p>Discover indie games, including free games.</p>
+      <p>Indie games and free games.</p>
       <a class="button" href="https://itch.io/games/free" target="_blank" rel="noopener">EXPLORE</a>
     </div>
 
     <div class="card">
       <h3>Scratch</h3>
-      <p>Play games made by other creators.</p>
+      <p>Play games made by creators.</p>
       <a class="button" href="https://scratch.mit.edu/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
     <div class="card">
+      <h3>Game Jolt</h3>
+      <p>Discover independent games.</p>
+      <a class="button" href="https://gamejolt.com/" target="_blank" rel="noopener">EXPLORE</a>
+    </div>
+
+    <div class="card">
       <h3>Miniclip</h3>
-      <p>Discover casual online games.</p>
-      <a class="button" href="https://www.miniclip.com/" target="_blank" rel="noopener">VISIT</a>
+      <p>Casual browser games.</p>
+      <a class="button" href="https://www.miniclip.com/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
     <div class="card">
       <h3>Roblox</h3>
-      <p>Explore games and experiences. Optional purchases may apply.</p>
+      <p>Games and user-created experiences.</p>
       <a class="button" href="https://www.roblox.com/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
@@ -314,32 +368,28 @@ footer {
       <a class="button" href="https://www.fortnite.com/" target="_blank" rel="noopener">VISIT</a>
     </div>
 
-    <div class="card">
-      <h3>Game Jolt</h3>
-      <p>Discover indie games and creative projects.</p>
-      <a class="button" href="https://gamejolt.com/" target="_blank" rel="noopener">EXPLORE</a>
-    </div>
-
   </div>
 </section>
+
+<!-- VIDEO -->
 
 <section id="video">
   <h2>📺 VIDEO & STREAMING</h2>
   <p class="description">
-    Your favorite video and streaming platforms.
+    Watch videos, creators and live streams.
   </p>
 
   <div class="cards">
 
     <div class="card">
       <h3>YouTube</h3>
-      <p>Videos, gaming content and creators.</p>
+      <p>Videos and gaming content.</p>
       <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">WATCH</a>
     </div>
 
     <div class="card">
       <h3>Twitch</h3>
-      <p>Live gaming streams and communities.</p>
+      <p>Live gaming streams.</p>
       <a class="button" href="https://www.twitch.tv/" target="_blank" rel="noopener">WATCH</a>
     </div>
 
@@ -351,12 +401,14 @@ footer {
 
     <div class="card">
       <h3>Kick</h3>
-      <p>Live streaming platform.</p>
+      <p>Live streaming.</p>
       <a class="button" href="https://kick.com/" target="_blank" rel="noopener">WATCH</a>
     </div>
 
   </div>
 </section>
+
+<!-- SOCIAL -->
 
 <section id="social">
   <h2>💬 SOCIAL & COMMUNITY</h2>
@@ -364,15 +416,39 @@ footer {
   <div class="cards">
 
     <div class="card">
+      <h3>Snapchat</h3>
+      <p>Connect and share with friends.</p>
+      <a class="button" href="https://www.snapchat.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>Instagram</h3>
+      <p>Photos, videos and creators.</p>
+      <a class="button" href="https://www.instagram.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
       <h3>Discord</h3>
-      <p>Chat and join communities.</p>
+      <p>Chat and gaming communities.</p>
       <a class="button" href="https://discord.com/" target="_blank" rel="noopener">OPEN</a>
     </div>
 
     <div class="card">
       <h3>Reddit</h3>
-      <p>Gaming discussions and communities.</p>
+      <p>Communities and discussions.</p>
       <a class="button" href="https://www.reddit.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>X</h3>
+      <p>Posts and updates.</p>
+      <a class="button" href="https://x.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>Pinterest</h3>
+      <p>Creative ideas and pictures.</p>
+      <a class="button" href="https://www.pinterest.com/" target="_blank" rel="noopener">EXPLORE</a>
     </div>
 
     <div class="card">
@@ -381,14 +457,10 @@ footer {
       <a class="button" href="https://open.spotify.com/" target="_blank" rel="noopener">LISTEN</a>
     </div>
 
-    <div class="card">
-      <h3>Pinterest</h3>
-      <p>Find art, gaming setups and ideas.</p>
-      <a class="button" href="https://www.pinterest.com/" target="_blank" rel="noopener">EXPLORE</a>
-    </div>
-
   </div>
 </section>
+
+<!-- MORE LINKS -->
 
 <section id="links">
   <h2>🌐 MORE WEBSITES</h2>
@@ -416,6 +488,8 @@ footer {
   </div>
 </section>
 
+<!-- CLOCK -->
+
 <section style="text-align:center">
   <h2>LOCAL TIME</h2>
   <div class="clock" id="clock">Loading...</div>
@@ -430,7 +504,8 @@ footer {
 
 <script>
 
-// Live clock
+// CLOCK
+
 function updateClock() {
   document.getElementById("clock").textContent =
     new Date().toLocaleTimeString();
@@ -439,8 +514,9 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// Search every card on the homepage
-const search = document.getElementById("search");
+// SEARCH ALL DASHBOARD CARDS
+
+const search = document.getElementById("cardSearch");
 const allCards = document.querySelectorAll(".card");
 const noResults = document.getElementById("noResults");
 
