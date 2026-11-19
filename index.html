@@ -4,15 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NIGHTFALL | Gaming Hub</title>
+<title>NIGHTFALL | Gaming & Entertainment</title>
 
 <style>
 :root {
   --purple: #a855f7;
-  --bright: #d8b4fe;
-  --background: #080611;
-  --card: #171126;
+  --light: #e9d5ff;
+  --bg: #090611;
+  --card: #191126;
 }
 
 * {
@@ -21,27 +20,23 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
+  background: var(--bg);
   color: white;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
 }
-
-/* Animated background */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 20%, #6120a833, transparent 35%),
-    radial-gradient(circle at 80% 70%, #9b35ff22, transparent 35%);
-  animation: glow 8s infinite alternate;
+    radial-gradient(circle at 15% 15%, #7124a833, transparent 35%),
+    radial-gradient(circle at 85% 75%, #a855f722, transparent 40%);
+  animation: glow 7s infinite alternate;
   pointer-events: none;
   z-index: -1;
 }
@@ -51,59 +46,53 @@ body::before {
   to { opacity: 1; }
 }
 
-/* Header */
-
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 7%;
-  border-bottom: 1px solid #38204f;
-  background: #0b0716dd;
   position: sticky;
   top: 0;
   z-index: 10;
+  background: #100a1ddd;
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid #48256b;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .logo {
-  font-size: 26px;
+  color: var(--light);
+  font-size: 27px;
   font-weight: bold;
   letter-spacing: 4px;
-  color: var(--bright);
   text-shadow: 0 0 15px var(--purple);
 }
 
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
 nav a {
-  color: #d6c5e9;
+  color: #d8c6ec;
   text-decoration: none;
-  margin-left: 20px;
   font-size: 14px;
 }
 
-nav a:hover {
-  color: var(--bright);
-}
-
-/* Hero */
+nav a:hover { color: var(--purple); }
 
 .hero {
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(
-    180deg, #32134e55, transparent
-  );
+  padding: 100px 20px;
+  background: linear-gradient(180deg,#35104e66,transparent);
 }
 
 .hero h1 {
-  font-size: clamp(42px, 8vw, 75px);
-  letter-spacing: 5px;
-  animation: appear 1s ease;
+  font-size: clamp(35px,7vw,70px);
+  letter-spacing: 3px;
+  animation: enter 1s ease;
 }
 
 .hero h1 span {
@@ -112,115 +101,109 @@ nav a:hover {
 }
 
 .hero p {
-  color: #c2afd8;
+  color: #c4afd9;
   margin: 20px 0 30px;
-  font-size: 17px;
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes enter {
+  from {opacity:0; transform:translateY(25px);}
+  to {opacity:1; transform:translateY(0);}
 }
-
-/* Buttons */
 
 .button {
   display: inline-block;
-  background: #812bd0;
+  padding: 12px 20px;
+  background: #852bd0;
+  border: 1px solid #c084fc;
   color: white;
-  padding: 13px 22px;
   border-radius: 8px;
   text-decoration: none;
-  border: 1px solid #c084fc;
+  font-weight: bold;
   transition: .25s;
-  cursor: pointer;
 }
 
 .button:hover {
   background: #a855f7;
-  box-shadow: 0 0 20px #a855f788;
   transform: translateY(-3px);
+  box-shadow: 0 0 18px #a855f788;
 }
 
-/* Sections */
-
 section {
-  padding: 50px 7%;
+  padding: 45px 7%;
 }
 
 section h2 {
-  color: var(--bright);
-  margin-bottom: 25px;
+  color: var(--light);
+  margin-bottom: 12px;
   font-size: 25px;
 }
 
-/* Search */
-
-.search-box {
-  margin-bottom: 30px;
+.description {
+  color: #a99ab9;
+  margin-bottom: 25px;
 }
 
-.search-box input {
+.search {
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #7535a4;
-  background: #171126;
+  margin: 15px 0 30px;
+  background: #191126;
+  border: 1px solid #7138a0;
+  border-radius: 9px;
   color: white;
+  font-size: 16px;
   outline: none;
-  font-size: 15px;
 }
 
-.search-box input:focus {
-  border-color: var(--bright);
+.search:focus {
+  border-color: #d8b4fe;
   box-shadow: 0 0 12px #a855f766;
 }
-
-/* Cards */
 
 .cards {
   display: grid;
   grid-template-columns:
-    repeat(auto-fit, minmax(210px, 1fr));
+    repeat(auto-fit,minmax(210px,1fr));
   gap: 20px;
 }
 
 .card {
   background: var(--card);
   border: 1px solid #48256b;
+  padding: 24px;
   border-radius: 12px;
-  padding: 25px;
-  transition: .3s;
-  animation: appear .7s ease;
+  transition: .25s;
+  animation: enter .6s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--purple);
   box-shadow: 0 0 20px #a855f733;
 }
 
 .card h3 {
-  margin-bottom: 12px;
   color: #e9d5ff;
+  margin-bottom: 12px;
 }
 
 .card p {
-  color: #a99ab9;
-  margin-bottom: 20px;
+  color: #ac9bbd;
   line-height: 1.5;
+  margin-bottom: 20px;
 }
 
-.card[hidden] {
-  display: none;
-}
+.card[hidden] { display: none; }
 
-/* Clock */
+#noResults {
+  color: #d8b4fe;
+  margin-top: 20px;
+}
 
 .clock {
-  color: var(--bright);
-  font-size: 32px;
+  color: var(--light);
+  font-size: 30px;
   font-weight: bold;
   text-shadow: 0 0 15px var(--purple);
 }
@@ -228,23 +211,18 @@ section h2 {
 footer {
   text-align: center;
   padding: 30px;
-  border-top: 1px solid #38204f;
+  border-top: 1px solid #48256b;
   color: #8c7b9d;
 }
 
-@media(max-width: 600px) {
+@media(max-width:600px) {
   header {
     flex-direction: column;
-    gap: 15px;
   }
 
-  nav a {
-    margin: 0 7px;
-  }
+  nav { justify-content: center; }
 
-  section {
-    padding: 40px 5%;
-  }
+  section { padding: 35px 5%; }
 }
 </style>
 </head>
@@ -257,147 +235,202 @@ footer {
   <nav>
     <a href="#home">Home</a>
     <a href="#games">Games</a>
+    <a href="#video">Video</a>
+    <a href="#social">Social</a>
     <a href="#links">Links</a>
   </nav>
 </header>
 
 <div class="hero" id="home">
   <h1>WELCOME TO <span>NIGHTFALL</span></h1>
-
-  <p>Your personal gaming headquarters.</p>
-
-  <a href="#games" class="button">
-    ENTER DASHBOARD
-  </a>
+  <p>Your personal gaming and entertainment headquarters.</p>
+  <a href="#games" class="button">EXPLORE NIGHTFALL</a>
 </div>
 
+<section>
+  <h2>🔎 Search NIGHTFALL</h2>
+  <p class="description">
+    Search games, websites and entertainment.
+  </p>
+
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Search everything..."
+    aria-label="Search all cards"
+  >
+
+  <p id="noResults" hidden>No matching results found.</p>
+</section>
+
 <section id="games">
+  <h2>🎮 FREE GAMING ZONE</h2>
+  <p class="description">
+    Free browser games and places to discover indie games.
+  </p>
 
-  <h2>🎮 Gaming Zone</h2>
-
-  <div class="search-box">
-    <input
-      type="search"
-      id="search"
-      placeholder="Search games and links..."
-      aria-label="Search dashboard cards"
-    >
-  </div>
-
-  <div class="cards" id="gameCards">
+  <div class="cards">
 
     <div class="card">
-      <h3>Rainbow Six Siege</h3>
-      <p>Enter the tactical battlefield.</p>
-      <a class="button"
-         href="https://www.ubisoft.com/"
-         target="_blank" rel="noopener">Visit</a>
+      <h3>CrazyGames</h3>
+      <p>Play hundreds of free browser games.</p>
+      <a class="button" href="https://www.crazygames.com/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
     <div class="card">
-      <h3>Minecraft</h3>
-      <p>Build your own world.</p>
-      <a class="button"
-         href="https://www.minecraft.net/"
-         target="_blank" rel="noopener">Visit</a>
+      <h3>Poki</h3>
+      <p>Explore free online games.</p>
+      <a class="button" href="https://poki.com/" target="_blank" rel="noopener">PLAY</a>
+    </div>
+
+    <div class="card">
+      <h3>itch.io</h3>
+      <p>Discover indie games, including free games.</p>
+      <a class="button" href="https://itch.io/games/free" target="_blank" rel="noopener">EXPLORE</a>
+    </div>
+
+    <div class="card">
+      <h3>Scratch</h3>
+      <p>Play games made by other creators.</p>
+      <a class="button" href="https://scratch.mit.edu/" target="_blank" rel="noopener">PLAY</a>
+    </div>
+
+    <div class="card">
+      <h3>Miniclip</h3>
+      <p>Discover casual online games.</p>
+      <a class="button" href="https://www.miniclip.com/" target="_blank" rel="noopener">VISIT</a>
+    </div>
+
+    <div class="card">
+      <h3>Roblox</h3>
+      <p>Explore games and experiences. Optional purchases may apply.</p>
+      <a class="button" href="https://www.roblox.com/" target="_blank" rel="noopener">PLAY</a>
     </div>
 
     <div class="card">
       <h3>Fortnite</h3>
-      <p>Jump into the action.</p>
-      <a class="button"
-         href="https://www.fortnite.com/"
-         target="_blank" rel="noopener">Visit</a>
+      <p>Free-to-play gaming experiences.</p>
+      <a class="button" href="https://www.fortnite.com/" target="_blank" rel="noopener">VISIT</a>
     </div>
 
     <div class="card">
-      <h3>Rocket League</h3>
-      <p>Cars, football and competition.</p>
-      <a class="button"
-         href="https://www.rocketleague.com/"
-         target="_blank" rel="noopener">Visit</a>
-    </div>
-
-    <div class="card">
-      <h3>Steam</h3>
-      <p>Discover PC games.</p>
-      <a class="button"
-         href="https://store.steampowered.com/"
-         target="_blank" rel="noopener">Visit</a>
-    </div>
-
-    <div class="card">
-      <h3>IGN Gaming</h3>
-      <p>Gaming news and reviews.</p>
-      <a class="button"
-         href="https://www.ign.com/"
-         target="_blank" rel="noopener">Visit</a>
+      <h3>Game Jolt</h3>
+      <p>Discover indie games and creative projects.</p>
+      <a class="button" href="https://gamejolt.com/" target="_blank" rel="noopener">EXPLORE</a>
     </div>
 
   </div>
-
-  <p id="noResults" hidden style="color:#c4a5e8;margin-top:20px;">
-    No matching cards found.
-  </p>
-
 </section>
 
-<section id="links">
-
-  <h2>🌐 My Custom Links</h2>
+<section id="video">
+  <h2>📺 VIDEO & STREAMING</h2>
+  <p class="description">
+    Your favorite video and streaming platforms.
+  </p>
 
   <div class="cards">
 
     <div class="card">
       <h3>YouTube</h3>
-      <p>Videos and entertainment.</p>
-      <a class="button"
-         href="https://www.youtube.com/"
-         target="_blank" rel="noopener">Open</a>
+      <p>Videos, gaming content and creators.</p>
+      <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">WATCH</a>
     </div>
 
     <div class="card">
+      <h3>Twitch</h3>
+      <p>Live gaming streams and communities.</p>
+      <a class="button" href="https://www.twitch.tv/" target="_blank" rel="noopener">WATCH</a>
+    </div>
+
+    <div class="card">
+      <h3>TikTok</h3>
+      <p>Short videos and entertainment.</p>
+      <a class="button" href="https://www.tiktok.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>Kick</h3>
+      <p>Live streaming platform.</p>
+      <a class="button" href="https://kick.com/" target="_blank" rel="noopener">WATCH</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="social">
+  <h2>💬 SOCIAL & COMMUNITY</h2>
+
+  <div class="cards">
+
+    <div class="card">
       <h3>Discord</h3>
-      <p>Connect with friends.</p>
-      <a class="button"
-         href="https://discord.com/"
-         target="_blank" rel="noopener">Open</a>
+      <p>Chat and join communities.</p>
+      <a class="button" href="https://discord.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>Reddit</h3>
+      <p>Gaming discussions and communities.</p>
+      <a class="button" href="https://www.reddit.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>Spotify</h3>
+      <p>Music and playlists.</p>
+      <a class="button" href="https://open.spotify.com/" target="_blank" rel="noopener">LISTEN</a>
+    </div>
+
+    <div class="card">
+      <h3>Pinterest</h3>
+      <p>Find art, gaming setups and ideas.</p>
+      <a class="button" href="https://www.pinterest.com/" target="_blank" rel="noopener">EXPLORE</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="links">
+  <h2>🌐 MORE WEBSITES</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Google</h3>
+      <p>Search the internet.</p>
+      <a class="button" href="https://www.google.com/" target="_blank" rel="noopener">OPEN</a>
     </div>
 
     <div class="card">
       <h3>GitHub</h3>
-      <p>Create your own projects.</p>
-      <a class="button"
-         href="https://github.com/"
-         target="_blank" rel="noopener">Open</a>
+      <p>Build and share projects.</p>
+      <a class="button" href="https://github.com/" target="_blank" rel="noopener">OPEN</a>
+    </div>
+
+    <div class="card">
+      <h3>IGN</h3>
+      <p>Gaming news and reviews.</p>
+      <a class="button" href="https://www.ign.com/" target="_blank" rel="noopener">READ</a>
     </div>
 
   </div>
-
 </section>
 
 <section style="text-align:center">
-
   <h2>LOCAL TIME</h2>
-
-  <div class="clock" id="clock">
-    Loading...
-  </div>
-
-  <p style="color:#9c8bad;margin-top:10px">
+  <div class="clock" id="clock">Loading...</div>
+  <p style="color:#a99ab9;margin-top:12px">
     NIGHTFALL SYSTEM ONLINE
   </p>
-
 </section>
 
 <footer>
-  © 2026 NIGHTFALL | Personal Gaming Dashboard
+  © 2026 NIGHTFALL | Gaming & Entertainment Hub
 </footer>
 
 <script>
 
 // Live clock
-
 function updateClock() {
   document.getElementById("clock").textContent =
     new Date().toLocaleTimeString();
@@ -406,17 +439,16 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// Search cards
-
+// Search every card on the homepage
 const search = document.getElementById("search");
-const cards = document.querySelectorAll("#gameCards .card");
+const allCards = document.querySelectorAll(".card");
 const noResults = document.getElementById("noResults");
 
 search.addEventListener("input", function() {
-  const query = search.value.toLowerCase();
+  const query = search.value.toLowerCase().trim();
   let count = 0;
 
-  cards.forEach(card => {
+  allCards.forEach(card => {
     const match =
       card.textContent.toLowerCase().includes(query);
 
